@@ -6,7 +6,7 @@ const routerWebsite = require('./routers/routerWebsite');
 const app = express();
 
 app.use(cors({
-  origin: 'https://cv-shop.onrender.com'
+  origin: 'https://cv-shopdgd.onrender.com'
 }));
 app.use(bodyParser.json());
 app.use('/api/users', routerWebsite);
