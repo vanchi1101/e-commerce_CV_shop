@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import imgUser from '../assets/images/user.png'
-import api from '../App.js'
+import axios from 'axios';
+
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
+  const api = axios.create({
+    baseURL: import.meta.env.VITE_API_URL,
+  });
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post('http://localhost:5000/api/users', {
+      const response = await api.post(`/api/users`, {
         username,
         password
       });
-      const resAdmin = await api.get('http://localhost:5000/api/users/manage-admin')
+      const resAdmin = await api.get(`/api/users/manage-admin`)
       console.log(resAdmin.data);
       const admin = resAdmin.data.find((ad) =>
         ad.adminname === username && ad.password === password

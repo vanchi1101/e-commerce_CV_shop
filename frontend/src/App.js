@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
@@ -20,10 +19,6 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [quantityItemInCart, setQuantityItemInCart] = useState(0);
   const [infoAdded, setInfoAdded] = useState(false);
-
-  const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL,
-  });
 
   const addCartItems = (product) => {
     setCartItems((prevItem) => {

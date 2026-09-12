@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import imgSign from '../assets/images/userSign.png';
 import { FaCheck } from "react-icons/fa6";
-import api from "../App.js";
+import axios from "axios";
 
 const SignupForm = () => {
   const [username, setUsername] = useState('');
@@ -11,11 +11,13 @@ const SignupForm = () => {
   const [errorMessageP, setErrorMessageP] = useState('');
   const [status, setStatus] = useState('');
   const navigate = useNavigate();
-
+  const api = axios.create({
+    baseURL: import.meta.env.VITE_API_URL,
+  });
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post('http://localhost:5000/api/users/signup', {
+      const response = await api.post('/api/users/signup', {
         username,
         password
       });
