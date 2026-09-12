@@ -1,0 +1,96 @@
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+.ProductsCSS {
+  width: 1519px;
+  height: 1000px;
+  background-color: #F5F5FA;
+}
+
+.itemsProduct::-webkit-scrollbar {
+    display: none;
+}
+
+.itemsProduct {
+  max-height: 100vh;
+  top: 16px;
+  overflow-y: scroll;
+  position: sticky;
+}
+
+.containerImgItem > img {
+  grid-area: 1/1;
+  width: 100%;
+  height: 100%;
+}
+
+/*  */
+
+/* Tạo hộp tùy chỉnh cho checkbox */
+.custom-checkbox {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: 0.75px solid #b0b0b0;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.6s, border-color 0.6s;
+  /* transform: translateY(); */
+  top: 4px
+}
+
+/* Khi checkbox được checked, đổi màu sang đỏ */
+input[type="checkbox"]:checked + .custom-checkbox {
+  background-color: #0B74E5;
+  border-color: #0B74E5;
+}
+
+/* Hiển thị dấu check khi checkbox được checked */
+input[type="checkbox"]:checked + .custom-checkbox::before {
+  content: '✔';
+  color: white;
+  font-size: 16px;
+  position: absolute;
+  top: -5px;
+  left: 2px;
+}
+
+/*  */
+
+.imgArrowCart {
+  transform: rotate(45deg);
+  box-shadow: 0 5px 10px rgb(110, 109, 109);
+}
+
+.hoverCursor {
+  cursor: pointer;
+}
+
+/*  */
+
+.hoverCategory:hover {
+  box-shadow: 0 5px 15px rgb(179, 179, 179);
+  transform: translateY(-10px);
+}
+
+.hoverCategory {
+  width: 280px;
+  height: 450px;
+  transition: 0.4s;
+}
+
+.hoverStyle:hover {
+  box-shadow: 0 5px 15px rgb(179, 179, 179);
+  transform: translateY(7px);
+}
+.hoverStyle {
+  transition: 0.4s;
+}
