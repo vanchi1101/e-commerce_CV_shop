@@ -9,11 +9,11 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/api/users', routerWebsite);
 
-app.get('/',(req, res) => {
-    res.send('Welcome to the Product API');
+app.get('/', (req, res) => {
+  res.send('Welcome to the Product API');
 });
 
 const PORT = 5000;
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server đang chạy tại http://localhost:${PORT}`);
 });
