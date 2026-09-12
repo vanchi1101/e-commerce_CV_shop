@@ -1,22 +1,22 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import imgSign from '../assets/images/userSign.png';
 import { FaCheck } from "react-icons/fa6";
+import api from "../App.js";
 
 const SignupForm = () => {
-  const [ username, setUsername ] = useState('');
-  const [ password, setPassword ] = useState('');
-  const [ errorMessageU, setErrorMessageU ] = useState('');
-  const [ errorMessageP, setErrorMessageP ] = useState('');
-  const [ status, setStatus ] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessageU, setErrorMessageU] = useState('');
+  const [errorMessageP, setErrorMessageP] = useState('');
+  const [status, setStatus] = useState('');
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/users/signup', {
-        username, 
+      const response = await api.post('http://localhost:5000/api/users/signup', {
+        username,
         password
       });
       if (response.status === 201) {
@@ -28,7 +28,7 @@ const SignupForm = () => {
       if (error.response && error.response.status === 401) {
         setErrorMessageU(error.response.data.message);
         setPassword('');
-      } else if (error.response && error.response.status === 402){
+      } else if (error.response && error.response.status === 402) {
         setErrorMessageP(error.response.data.message);
         setPassword('');
       } else {
@@ -36,7 +36,7 @@ const SignupForm = () => {
       }
     }
   }
-  
+
   const handleBackLogin = () => {
     navigate('/')
   }
@@ -47,7 +47,7 @@ const SignupForm = () => {
         <div className='login'>
           <div className='box-log'>
             <div className='box-imgUser'>
-              <img src={imgSign} alt='Photos'/>
+              <img src={imgSign} alt='Photos' />
             </div>
           </div>
           <div className='box-log2'>
@@ -57,12 +57,12 @@ const SignupForm = () => {
                 type='text'
                 placeholder='Username'
                 value={username || ''}
-                onChange={(e)=> setUsername(e.target.value)}
+                onChange={(e) => setUsername(e.target.value)}
                 required
               />
-              <br/>
-              {errorMessageU && <small style={{color: 'red' }}>{errorMessageU}</small>}
-              <br/>
+              <br />
+              {errorMessageU && <small style={{ color: 'red' }}>{errorMessageU}</small>}
+              <br />
               <input
                 type='password'
                 placeholder='Password'
@@ -70,9 +70,9 @@ const SignupForm = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <br/>
-              {errorMessageP && <small style={{color: 'red' }}>{errorMessageP}</small>}
-              <br/>
+              <br />
+              {errorMessageP && <small style={{ color: 'red' }}>{errorMessageP}</small>}
+              <br />
               {/* <button type='submit'>Signup</button> */}
               <button>Signup</button>
               <p>Do you have account? <a href='\'>Login</a></p>
@@ -86,20 +86,20 @@ const SignupForm = () => {
         <div className='login'>
           <div className='box-log'>
             <div className='box-imgUser'>
-              <img src={imgSign} alt='Photos'/>
+              <img src={imgSign} alt='Photos' />
             </div>
           </div>
           <div className='box-log2'>
             <h2>Success Signup</h2>
             <div className="circle-success-sign">
-              <FaCheck  className="icon-checkSign"/>
+              <FaCheck className="icon-checkSign" />
             </div>
             <button onClick={handleBackLogin}>Back to Login</button>
           </div>
         </div>
       }
-     
-   </div>
+
+    </div>
   );
 
 };
